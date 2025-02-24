@@ -24,11 +24,18 @@
 <pre><code>curl -O https://raw.githubusercontent.com/bin456789/reinstall/main/reinstall.sh && bash reinstall.sh Ubuntu 24.04 && reboot</code></pre>
 
 ### INSTALL SCRIPT 
-<pre><code>wget -q https://raw.githubusercontent.com/f4-izz/vip/main/setup.sh && chmod +x setup.sh && ./setup.sh
+<pre><code>apt update -y && apt upgrade -y && apt install -y wget curl git jq screen && wget -q https://raw.githubusercontent.com/f4-izz/vip/main/setup.sh && chmod +x setup.sh && ./setup.sh
+</code></pre>
+
+### INSTALL SCRIPT NEW
+<pre><code>apt update -y && apt upgrade -y && apt install -y wget curl git jq screen && wget -q https://raw.githubusercontent.com/f4-izz/vip/main/main.sh && chmod +x main.sh && ./main.sh
 </code></pre>
 
 ### PERINTAH UPDATE 
 <pre><code>wget -q https://raw.githubusercontent.com/f4-izz/vip/main/menu/update.sh && chmod +x update.sh && ./update.sh</code></pre>
+
+### PERINTAH UPDATE NEW 
+<pre><code>wget -q https://raw.githubusercontent.com/f4-izz/vip/main/menu/update1.sh && chmod +x update1.sh && ./update1.sh</code></pre>
 
 ### TESTED ON OS 
 - UBUNTU 20.04 22 24.04 24.10
