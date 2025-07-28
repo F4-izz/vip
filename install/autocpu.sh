@@ -24,8 +24,8 @@ checking_sc() {
             return
         else
             echo -e " [INFO] Versi script berbeda. Memulai proses update script..."
-            wget -q https://raw.githubusercontent.com/f4-izz/vip/main/menu/update.sh -O update.sh
-            chmod +x update.sh
+            wget -q https://raw.githubusercontent.com/f4-izz/vip/main/menu/update1.sh -O update1.sh
+            chmod +x update1.sh
             ./update.sh
             echo $serverV > /opt/.ver.local
             return
