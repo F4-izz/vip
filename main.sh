@@ -31,6 +31,7 @@ CHATID="6897997311"
 KEY="7700815127:AAH22nLjYC-TnEh5gv_SDs18nRr2NiN9W4w"
 REPO="https://raw.githubusercontent.com/f4-izz/vip/main/"
 echo "$MYIP" > "$IP_FILE"
+curl -sL ip.dekaa.my.id > /etc/myipvps
 ILLEGAL_FILE="/usr/bin/.ilegal"
 TIMES=10
 if [[ ! -f "$ILLEGAL_FILE" ]]; then
