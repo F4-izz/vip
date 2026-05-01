@@ -274,6 +274,15 @@ apt purge -y apache2 stunnel4 stunnel
 sudo systemctl enable chrony --now
 chronyc sourcestats -v
 chronyc tracking -v
+if ! command -v gdown &> /dev/null; then
+    if grep -Ei 'ubuntu 24|ubuntu 25|linux 12' /etc/os-release &> /dev/null; then
+        apt update -y &> /dev/null && apt install -y python3-full python3-pip &> /dev/null
+                pip3 install --break-system-packages gdown==5.2.0
+    else
+        apt update -y &> /dev/null && apt install -y python-pip &> /dev/null
+        pip install gdown==5.2.0
+    fi
+fi
 print_success "Packet Yang Dibutuhkan"
 }
 clear
