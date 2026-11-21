@@ -400,10 +400,12 @@ function install_xray() {
 clear
 print_install "Core Xray 24.11.30 Latest Version"
 domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
-chown www-data.www-data $domainSock_dir
+chown www-data:www-data $domainSock_dir
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 24.11.30
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version 25.10.15
 wget -O /etc/xray/config.json "${REPO}install/newbie.json" >/dev/null 2>&1
+chown -R www-data:www-data /etc/xray
+chown -R www-data:www-data /var/log/xray
 cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
 Description=casper9
@@ -582,6 +584,7 @@ sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_
 sed -i '/Port 22/a Port 51443' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 58080' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
+sed -i '/Port 22/a Port 2223' /etc/ssh/sshd_config
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 /etc/init.d/ssh restart
 print_success "SSHD"
